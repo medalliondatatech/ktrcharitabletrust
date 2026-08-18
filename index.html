@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KTR Charitable Trust | Donate</title>
+<meta name="description" content="Support KTR Charitable Trust through a secure donation journey.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap topinner"><div>Helping communities move forward, together.</div><div class="toplinks"><span>+91-9492867926</span><span>info@ktrcharitabletrust.org</span></div></div></header>
+<nav class="nav"><div class="wrap navinner"><a class="brand" href="index.html"><img src="logo.png" alt="KTR Charitable Trust"><span>KTR <small>CHARITABLE TRUST</small></span></a><button class="menu" id="menuBtn">☰</button><div class="navlinks" id="navLinks"><a href="#home">Home</a><a href="#causes">Causes</a><a href="#impact">Our Impact</a><a href="#gallery">Gallery</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#about">About Us</a><a href="#contact">Contact</a><a class="navdonate" href="#donate">Donate Now</a></div></div></nav>
+<main>
+<section class="hero" id="home"><div class="wrap heroGrid"><div><span class="eyebrow">MAKE A DIFFERENCE</span><h1>Your kindness can become <em>someone's new beginning.</em></h1><p>Support KTR Charitable Trust's work in education, healthcare, community welfare and emergency support.</p><a href="#donate" class="btn primary">Donate Now <span>→</span></a></div><div class="heroCard"><div class="heroLogo"><img src="logo.png" alt="KTR logo"></div><div><strong>Every contribution matters</strong><p>Choose a one-time or monthly contribution and help us plan support that lasts.</p></div></div></div></section>
+<section class="section" id="donate"><div class="wrap"><div class="sectionHead"><div><span class="eyebrow">DONATE</span><h2>Give with purpose</h2><p>Our donation flow is designed to collect the information needed for a receipt and a smooth payment experience.</p></div><div class="secure">🔒 Secure donation journey</div></div>
+<div class="donationShell">
+<aside class="sidePanel"><h3>Why donate?</h3><ul><li><b>Education</b><span>Help children access learning opportunities.</span></li><li><b>Healthcare</b><span>Support treatment, medicines and essential care.</span></li><li><b>Community welfare</b><span>Reach families facing difficult circumstances.</span></li><li><b>Emergency support</b><span>Respond when help is needed most.</span></li></ul><div class="note">Tax-exemption messaging and receipt rules should be updated with KTR's verified registration details before launch.</div></aside>
+<div class="donationCard">
+<div class="donorTabs"><button class="tab active" data-donor="indian">Indian Donor</button><button class="tab" data-donor="nri">NRI Donor</button><button class="tab" data-donor="foreign">Foreign Donor</button></div>
+<div class="stepbar"><div class="step active" data-step-dot="1">1<span>Contribution</span></div><div class="line"></div><div class="step" data-step-dot="2">2<span>Your details</span></div><div class="line"></div><div class="step" data-step-dot="3">3<span>Payment</span></div></div>
+<form id="donationForm" novalidate>
+<div class="stepPane" data-pane="1">
+<div class="giving"><button type="button" class="give active" data-frequency="once"><span>Give Once</span><small>One-time support</small></button><button type="button" class="give" data-frequency="monthly"><span>Give Monthly</span><small>Recurring support</small></button></div>
+<div class="grid2"><label>Country<select id="country"><option>India</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Canada</option><option>Australia</option><option>Other</option></select></label><label>Currency<select id="currency"><option>INR</option><option>USD</option><option>GBP</option><option>AED</option><option>CAD</option><option>AUD</option></select></label></div>
+<label>Choose a cause<select id="purpose"><option value="general">Where needed most</option><option>Education</option><option>Healthcare</option><option>Community Welfare</option><option>Emergency Support</option></select></label>
+<div class="amountLabel"><span>Select amount</span><span id="currencyLabel">INR</span></div><div class="amounts"><button type="button" data-amount="500">500</button><button type="button" data-amount="1000">1,000</button><button type="button" data-amount="2500">2,500</button><button type="button" data-amount="5000">5,000</button></div>
+<label>Custom amount<div class="money"><span id="moneySymbol">₹</span><input id="amount" inputmode="decimal" type="number" min="1" step="1" placeholder="Enter amount"></div></label>
+<div class="taxRow"><label class="check"><input type="checkbox" id="taxReceipt"><span>I'd like a tax-exemption receipt if eligible</span></label></div>
+<button type="button" class="btn primary full" id="toDetails">Continue <span>→</span></button>
+</div>
+<div class="stepPane hidden" data-pane="2">
+<div class="summary"><div><span>Contribution</span><strong id="summaryAmount">INR 0</strong></div><div><span>Frequency</span><strong id="summaryFrequency">One-time</strong></div><div><span>Purpose</span><strong id="summaryPurpose">Where needed most</strong></div></div>
+<div class="grid2"><label>Full name*<input id="name" required autocomplete="name"></label><label>Phone number*<input id="phone" required type="tel" autocomplete="tel"></label><label>Email address*<input id="email" required type="email" autocomplete="email"></label><label>PAN / ID number<span class="optional"> (if applicable)</span><input id="pan"></label><label class="span2">Address*<input id="address" required autocomplete="street-address"></label><label>City*<input id="city" required></label><label>State / Province*<input id="state" required></label><label>Postal / ZIP code*<input id="zip" required autocomplete="postal-code"></label><label>Country*<input id="detailsCountry" required></label></div>
+<label class="check"><input type="checkbox" id="consent" required><span>I confirm the information provided is accurate and agree to KTR Charitable Trust's donation and privacy terms.</span></label>
+<div class="actions"><button type="button" class="btn secondary" id="back1">Back</button><button type="button" class="btn primary" id="toPayment">Continue to Payment <span>→</span></button></div>
+</div>
+<div class="stepPane hidden" data-pane="3">
+<div class="paymentBox"><div class="paymentAmount"><span>Total contribution</span><strong id="paymentAmount">INR 0</strong></div><div class="paymentMethods"><button type="button" class="pay active">UPI / Cards / Net Banking</button><button type="button" class="pay">Bank Transfer</button></div><div id="gatewayPanel"><h3>Online payment</h3><p>Connect KTR's verified payment gateway here (for example Razorpay, Cashfree or another approved provider). The current screen is a front-end-ready placeholder and does not charge money.</p><div class="gatewayMock"><span>Payment gateway</span><b>READY FOR KTR CREDENTIALS</b></div></div><div id="bankPanel" class="hidden"><h3>Bank transfer</h3><p>After KTR provides verified bank/FCRA details, this panel can display account name, bank, account number, IFSC/SWIFT and a transaction-reference upload/confirmation form.</p></div></div>
+<div class="actions"><button type="button" class="btn secondary" id="back2">Back</button><button type="button" class="btn primary" id="finish">Donate Securely <span>♥</span></button></div>
+</div>
+<div class="success hidden" id="success"><div class="successIcon">✓</div><h3>Thank you for supporting KTR.</h3><p>Your donation journey has been recorded as a demo. Connect the verified payment gateway and KTR receipt service to process live contributions.</p><button type="button" class="btn primary" id="restart">Make another donation</button></div>
+<div class="error" id="error"></div>
+</form></div></div></div></section>
+<section class="impact" id="impact"><div class="wrap"><div class="sectionHead"><div><span class="eyebrow">OUR IMPACT</span><h2>Build the numbers from real KTR data</h2></div></div><div class="stats"><div><strong>100+</strong><span>People supported</span></div><div><strong>10+</strong><span>Education initiatives</span></div><div><strong>0+</strong><span>Healthcare interventions</span></div><div><strong>0+</strong><span>Community projects</span></div></div></div></section>
+<section class="section" id="causes"><div class="wrap"><span class="eyebrow">OUR CAUSES</span><h2>Where your support can go</h2><div class="cards"><article><div>01</div><h3>Education</h3><p>Scholarships, learning materials and opportunities for children and young people.</p></article><article><div>02</div><h3>Healthcare</h3><p>Support for essential treatment, medicines, diagnostics and care.</p></article><article><div>03</div><h3>Community Welfare</h3><p>Practical assistance for families and communities facing hardship.</p></article><article><div>04</div><h3>Emergency Support</h3><p>Rapid assistance for urgent needs and unforeseen situations.</p></article></div></div></section>
+<section class="section gallerySection" id="gallery">
+<div class="wrap">
+  <div class="galleryHead">
+    <div><span class="eyebrow">PHOTO GALLERY</span><h2>See where your support makes a difference.</h2><p>We can showcase donated items, community activities and the people who benefited. Each photo can include the cause, beneficiary, location, date and donor acknowledgement.</p></div>
+    <button class="btn primary" type="button" id="openAddPhoto">＋ Add Beneficiary Photo</button>
+  </div>
+  <div class="galleryToolbar">
+    <div class="galleryFilters" id="galleryFilters">
+      <button class="filter active" data-filter="all">All</button><button class="filter" data-filter="Education">Education</button><button class="filter" data-filter="Healthcare">Healthcare</button><button class="filter" data-filter="Community Welfare">Community Welfare</button><button class="filter" data-filter="Emergency Support">Emergency Support</button>
+    </div>
+    <label class="gallerySearch">Search photos <input id="gallerySearch" type="search" placeholder="Beneficiary, location or donor"></label>
+  </div>
+  <div class="galleryGrid" id="galleryGrid"></div>
+  <div class="galleryEmpty hidden" id="galleryEmpty"><div>📷</div><h3>No photos yet</h3><p>Add the first beneficiary story to start building the KTR impact gallery.</p><button class="btn secondary" type="button" id="emptyAddPhoto">Add a photo</button></div>
+</div>
+</section>
+<div class="modal hidden" id="photoModal" role="dialog" aria-modal="true" aria-labelledby="photoModalTitle">
+  <div class="modalBackdrop" data-close-modal></div><div class="modalCard">
+    <button class="modalClose" type="button" data-close-modal aria-label="Close">×</button>
+    <span class="eyebrow">ADD TO GALLERY</span><h3 id="photoModalTitle">Add a beneficiary photo</h3>
+    <p class="modalHint">For privacy, publish only photos and beneficiary details that KTR has permission to share.</p>
+    <form id="photoForm">
+      <label>Photo*<input id="photoFile" type="file" accept="image/*" required></label>
+      <div class="grid2"><label>Cause*<select id="photoCause" required><option>Education</option><option>Healthcare</option><option>Community Welfare</option><option>Emergency Support</option></select></label><label>Date<input id="photoDate" type="date"></label>
+      <label>Beneficiary / story title*<input id="photoBeneficiary" required placeholder="e.g. School kit support for Ananya"></label><label>Location<input id="photoLocation" placeholder="City / village"></label>
+      <label>Donor acknowledgement<input id="photoDonor" placeholder="e.g. Donor / sponsor name (optional)"></label><label>Amount / support provided<input id="photoSupport" placeholder="e.g. School kit, ₹5,000, medicines"></label>
+      <label class="span2">Caption / impact story<textarea id="photoCaption" rows="3" placeholder="Briefly describe what was provided and how it helped."></textarea></label></div>
+      <label class="check"><input type="checkbox" id="photoConsent" required><span>I confirm KTR has permission to publish this photo and the information provided.</span></label>
+      <div class="actions"><button type="button" class="btn secondary" data-close-modal>Cancel</button><button class="btn primary" type="submit">Add to Gallery</button></div>
+    </form>
+  </div>
+</div>
+<div class="modal hidden" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Gallery photo">
+  <div class="modalBackdrop" data-close-lightbox></div><div class="lightboxCard"><button class="modalClose" type="button" data-close-lightbox aria-label="Close">×</button><img id="lightboxImage" alt=""><div class="lightboxInfo"><span class="eyebrow" id="lightboxCause"></span><h3 id="lightboxTitle"></h3><p id="lightboxCaption"></p><div class="lightboxMeta" id="lightboxMeta"></div></div></div>
+</div>
+<section class="section leadershipSection" id="leadership">
+<div class="wrap">
+  <div class="galleryHead">
+    <div><span class="eyebrow">OUR TRUSTEES</span><h2>The people guiding KTR</h2><p>Photos and names below are placeholders. Add the trust's actual Chairman, Vice-Chairman and Members using the button — each entry is saved in this browser until it's connected to a shared server.</p></div>
+    <button class="btn primary" type="button" id="openAddTrustee">＋ Add Trustee Photo</button>
+  </div>
+  <div class="trusteeGroup" data-role-group="Chairman"><h3>Chairman</h3><div class="trusteeGrid" id="trusteeGridChairman"></div></div>
+  <div class="trusteeGroup" data-role-group="Vice-Chairman"><h3>Vice-Chairman</h3><div class="trusteeGrid" id="trusteeGridViceChairman"></div></div>
+  <div class="trusteeGroup" data-role-group="Member"><h3>Members</h3><div class="trusteeGrid" id="trusteeGridMember"></div></div>
+</div>
+</section>
+<div class="modal hidden" id="trusteeModal" role="dialog" aria-modal="true" aria-labelledby="trusteeModalTitle">
+  <div class="modalBackdrop" data-close-modal></div><div class="modalCard">
+    <button class="modalClose" type="button" data-close-modal aria-label="Close">×</button>
+    <span class="eyebrow">LEADERSHIP</span><h3 id="trusteeModalTitle">Add a trustee</h3>
+    <p class="modalHint">Use a clear photo of the actual trustee. This is stored only in this browser until it's connected to a shared server.</p>
+    <form id="trusteeForm">
+      <label>Photo*<input id="trusteePhoto" type="file" accept="image/*" required></label>
+      <div class="grid2"><label>Full name*<input id="trusteeName" required placeholder="e.g. Rajesh Kumar Reddy"></label><label>Role*<select id="trusteeRole" required><option value="Chairman">Chairman</option><option value="Vice-Chairman">Vice-Chairman</option><option value="Member">Member</option></select></label></div>
+      <label class="span2">Short bio / note<textarea id="trusteeBio" rows="3" placeholder="Optional — years with the trust, focus area, etc."></textarea></label>
+      <label class="check"><input type="checkbox" id="trusteeConsent" required><span>I confirm this person has agreed to have their name and photo published on the KTR website.</span></label>
+      <div class="actions"><button type="button" class="btn secondary" data-close-modal>Cancel</button><button class="btn primary" type="submit">Add Trustee</button></div>
+    </form>
+  </div>
+</div>
+<section class="section donationsSection" id="donationslist">
+<div class="wrap">
+  <div class="galleryHead">
+    <div><span class="eyebrow">TRANSPARENCY</span><h2>Donations received</h2><p>A public record of contributions to KTR. Add a record using the button below — figures shown are demo placeholders until real donation data is entered.</p></div>
+    <button class="btn primary" type="button" id="openAddDonation">＋ Add Donation Record</button>
+  </div>
+  <div class="donationSummary">
+    <div><span>Total donations logged</span><strong id="donationCount">0</strong></div>
+    <div><span>Total amount raised</span><strong id="donationTotal">₹0</strong></div>
+  </div>
+  <div class="donationsList" id="donationsList"></div>
+  <div class="galleryEmpty hidden" id="donationsEmpty"><div>🧾</div><h3>No donations logged yet</h3><p>Add the first donation record to start the public log.</p><button class="btn secondary" type="button" id="emptyAddDonation">Add a donation</button></div>
+</div>
+</section>
+<div class="modal hidden" id="donationModal" role="dialog" aria-modal="true" aria-labelledby="donationModalTitle">
+  <div class="modalBackdrop" data-close-modal></div><div class="modalCard">
+    <button class="modalClose" type="button" data-close-modal aria-label="Close">×</button>
+    <span class="eyebrow">DONATIONS LIST</span><h3 id="donationModalTitle">Add a donation record</h3>
+    <p class="modalHint">This adds an entry to the public donations list on this page — it does not process a payment.</p>
+    <form id="donationRecordForm">
+      <div class="grid2"><label>Donor name<span class="optional"> (leave blank for Anonymous)</span><input id="donationDonor" placeholder="e.g. Priti Sharma"></label><label>Amount (₹)*<input id="donationAmount" type="number" min="1" step="1" required placeholder="e.g. 5000"></label>
+      <label>Cause*<select id="donationCause" required><option>Education</option><option>Healthcare</option><option>Community Welfare</option><option>Emergency Support</option><option>Where needed most</option></select></label><label>Date<input id="donationDate" type="date"></label></div>
+      <label class="span2">Message / note<textarea id="donationNote" rows="2" placeholder="Optional — dedication, purpose, etc."></textarea></label>
+      <label class="check"><input type="checkbox" id="donationConsent" required><span>I confirm this donation record is accurate and may be listed publicly.</span></label>
+      <div class="actions"><button type="button" class="btn secondary" data-close-modal>Cancel</button><button class="btn primary" type="submit">Add to Donations List</button></div>
+    </form>
+  </div>
+</div>
+<section class="about" id="about"><div class="wrap aboutGrid"><div><span class="eyebrow">ABOUT KTR</span><h2>Compassion with accountability.</h2></div><div><p>KTR Charitable Trust is being presented here as a community-focused charitable organisation. Replace this copy with KTR's verified mission, registration information, trustees, annual reports and programme details before publication.</p><a href="#contact" class="textlink">Talk to the trust →</a></div></div></section>
+<section class="contact section" id="contact"><div class="wrap contactBox"><div><span class="eyebrow">GET IN TOUCH</span><h2>Have a question about donating?</h2><p>We can add WhatsApp, phone, email, donor support and receipt assistance here.</p></div><div class="contactDetails"><span>📞 +91-9492867926</span><span>✉ info@ktrcharitabletrust.org</span><a href="#donate" class="btn primary">Donate Now</a></div></div></section>
+</main>
+<footer><div class="wrap footerGrid"><div><img src="logo.png" alt="KTR Charitable Trust"><p>Serving communities with compassion, dignity and purpose.</p></div><div><h4>Quick links</h4><a href="#about">About</a><a href="#causes">Causes</a><a href="#impact">Impact</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#donate">Donate</a></div><div><h4>Donation support</h4><p>Tax receipts, bank transfers, international donations and payment support can be added once KTR's verified details are supplied.</p></div></div><div class="wrap copyright">© 2026 KTR Charitable Trust. All rights reserved.</div></footer>
+<script src="script.js"></script>
+</body></html>
