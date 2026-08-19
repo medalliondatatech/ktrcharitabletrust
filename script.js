@@ -150,7 +150,7 @@ renderTrustees();
 // KTR Donations List: local browser public log of donation records until a backend/payment system is connected.
 const defaultDonations = [
   {id:'donation-sample-1',donor:'FirstDonar',amount:500,cause:'Education',date:'',note:'Our first donor, with a generous heart, contributed ₹500 to support the KTR Charitable Trust’s mission.',sample:true},
-  {id:'donation-sample-2',donor:'Vasu Singupalli',amount:10000,cause:'Education',date:'',note:'',sample:true}
+  {id:'donation-sample-2',donor:'Vasu Singupalli',amount:10000,cause:'Education',date:'',note:'A birthday celebration becomes even more meaningful when it brings joy to others. On his son’s birthday, Vasu Anna extended his kindness by donating to the KTR Charitable Trust',sample:true}
 ];
 const donationModal=document.getElementById('donationModal');
 const donationsListEl=document.getElementById('donationsList'), donationsEmpty=document.getElementById('donationsEmpty');
