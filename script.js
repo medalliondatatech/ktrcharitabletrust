@@ -125,7 +125,7 @@ function renderTrustees(){
   Object.values(trusteeGrids).forEach(g=>g.innerHTML='');
   trusteeItems.forEach(t=>{
     const grid=trusteeGrids[t.role]||trusteeGrids.Member;
-    const card=document.createElement('article'); card.className='trusteeCard'+(t.sample?' ':'');
+    const card=document.createElement('article'); card.className='trusteeCard'+(t.sample?' sample':'');
     card.innerHTML=`<div class="trusteePhoto">${t.photo?`<img src="${t.photo}" alt="${escapeHtml(t.name)}">`:initials(t.name)}</div><h4>${escapeHtml(t.name)}</h4><span class="trusteeRole">${escapeHtml(t.role)}</span><p>${escapeHtml(t.bio||'')}</p>${t.sample?'':`<button class="trusteeDelete" data-delete-trustee="${t.id}">Remove</button>`}`;
     grid.appendChild(card);
   });
@@ -196,7 +196,7 @@ const defaultNeedy = [
   {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
   {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
   {id:'needy-sample-3',name:'10 year Boy(Cancer patient) for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
-  {id:'needy-sample-3',name:'Kishore  for family support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'Kishore  for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'DhilliRao  for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
   {id:'needy-sample-3',name:'Deepu Hyderabad for Medical support - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
