@@ -192,10 +192,11 @@ renderDonations();
 
 // KTR Needy People List: local browser list of people the trust supports, filterable by status (All / Needs Help / Donated).
 const defaultNeedy = [
-  {id:'needy-sample-1',name:'Sample: Add a real name',category:'Education',location:'Sample village',status:'Needs Help',story:'Replace this sample with a real person KTR is supporting — their name, photo and story.',photo:'',amount:0,sample:true},
-  {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
-  {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
-  {id:'needy-sample-3',name:'10 year Boy(Cancer patient) for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-1',name:'Sample: Add a real name',category:'Education',location:'Sample village',status:'Needs Help',story:'Replace this sample with a real person KTR is supporting — their name, photo and story.',photo:'',amount:0,sample:false},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:false},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:false},
+  {id:'needy-sample-3',name:'10 year Boy(Cancer patient) for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:false},
+  {id:'needy-sample-3',name:'Kishore  for family support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'DhilliRao  for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
   {id:'needy-sample-3',name:'Deepu Hyderabad for Medical support - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
@@ -227,7 +228,7 @@ function renderNeedyList(){
   needyGrid.innerHTML='';
   needyEmpty.classList.toggle('hidden',filtered.length>0);
   filtered.forEach(p=>{
-    const row=document.createElement('div'); row.className='donationRow'+(p.sample?' sample':'');
+    const row=document.createElement('div'); row.className='donationRow'+(p.sample?' ':'');
     const statusClass=p.status==='Donated'?'donated':'needs';
     const metaBits=[p.location||'Location not on record',p.story||''].filter(Boolean);
     const amountText=(p.status==='Donated'&&Number(p.amount||0)>0)?'₹'+Number(p.amount).toLocaleString('en-IN'):'';
