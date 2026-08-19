@@ -125,7 +125,7 @@ function renderTrustees(){
   Object.values(trusteeGrids).forEach(g=>g.innerHTML='');
   trusteeItems.forEach(t=>{
     const grid=trusteeGrids[t.role]||trusteeGrids.Member;
-    const card=document.createElement('article'); card.className='trusteeCard'+(t.sample?' sample':'');
+    const card=document.createElement('article'); card.className='trusteeCard'+(t.sample?' ':'');
     card.innerHTML=`<div class="trusteePhoto">${t.photo?`<img src="${t.photo}" alt="${escapeHtml(t.name)}">`:initials(t.name)}</div><h4>${escapeHtml(t.name)}</h4><span class="trusteeRole">${escapeHtml(t.role)}</span><p>${escapeHtml(t.bio||'')}</p>${t.sample?'':`<button class="trusteeDelete" data-delete-trustee="${t.id}">Remove</button>`}`;
     grid.appendChild(card);
   });
