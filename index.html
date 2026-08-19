@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="topbar"><div class="wrap topinner"><div>Helping communities move forward, together.</div><div class="toplinks"><span>+91-9492867926</span><span>info@ktrcharitabletrust.org</span></div></div></header>
-<nav class="nav"><div class="wrap navinner"><a class="brand" href="index.html"><img src="logo.png" alt="KTR Charitable Trust"><span>KTR <small>CHARITABLE TRUST</small></span></a><button class="menu" id="menuBtn">☰</button><div class="navlinks" id="navLinks"><a href="#home">Home</a><a href="#causes">Causes</a><a href="#impact">Our Impact</a><a href="#gallery">Gallery</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#about">About Us</a><a href="#contact">Contact</a><a class="navdonate" href="#donate">Donate Now</a></div></div></nav>
+<header class="topbar"><div class="wrap topinner"><div>Helping communities move forward, together.</div><div class="toplinks"><span>Regd No: Book IV 7/2022</span><span>+91-9492867926</span><span>info@ktrcharitabletrust.org</span></div></div></header>
+<nav class="nav"><div class="wrap navinner"><a class="brand" href="index.html"><img src="logo.png" alt="KTR Charitable Trust"><span>KTR <small>CHARITABLE TRUST</small></span></a><button class="menu" id="menuBtn">☰</button><div class="navlinks" id="navLinks"><a href="#home">Home</a><a href="#causes">Causes</a><a href="#needylist">Needy People</a><a href="#impact">Our Impact</a><a href="#gallery">Gallery</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#about">About Us</a><a href="#contact">Contact</a><a class="navdonate" href="#donate">Donate Now</a></div></div></nav>
 <main>
 <section class="hero" id="home"><div class="wrap heroGrid"><div><span class="eyebrow">MAKE A DIFFERENCE</span><h1>Your kindness can become <em>someone's new beginning.</em></h1><p>Support KTR Charitable Trust's work in education, healthcare, community welfare and emergency support.</p><a href="#donate" class="btn primary">Donate Now <span>→</span></a></div><div class="heroCard"><div class="heroLogo"><img src="logo.png" alt="KTR logo"></div><div><strong>Every contribution matters</strong><p>Choose a one-time or monthly contribution and help us plan support that lasts.</p></div></div></div></section>
 <section class="section" id="donate"><div class="wrap"><div class="sectionHead"><div><span class="eyebrow">DONATE</span><h2>Give with purpose</h2><p>Our donation flow is designed to collect the information needed for a receipt and a smooth payment experience.</p></div><div class="secure">🔒 Secure donation journey</div></div>
@@ -43,6 +43,42 @@
 </form></div></div></div></section>
 <section class="impact" id="impact"><div class="wrap"><div class="sectionHead"><div><span class="eyebrow">OUR IMPACT</span><h2>Build the numbers from real KTR data</h2></div></div><div class="stats"><div><strong>100+</strong><span>People supported</span></div><div><strong>10+</strong><span>Education initiatives</span></div><div><strong>0+</strong><span>Healthcare interventions</span></div><div><strong>0+</strong><span>Community projects</span></div></div></div></section>
 <section class="section" id="causes"><div class="wrap"><span class="eyebrow">OUR CAUSES</span><h2>Where your support can go</h2><div class="cards"><article><div>01</div><h3>Education</h3><p>Scholarships, learning materials and opportunities for children and young people.</p></article><article><div>02</div><h3>Healthcare</h3><p>Support for essential treatment, medicines, diagnostics and care.</p></article><article><div>03</div><h3>Community Welfare</h3><p>Practical assistance for families and communities facing hardship.</p></article><article><div>04</div><h3>Emergency Support</h3><p>Rapid assistance for urgent needs and unforeseen situations.</p></article></div></div></section>
+<section class="section needySection" id="needylist">
+<div class="wrap">
+  <div class="galleryHead">
+    <div><span class="eyebrow">NEEDY PEOPLE LIST</span><h2>People KTR is supporting</h2><p>A public list of people the trust is helping — mark someone <b>Donated</b> once their need has been met. Entries are saved in this browser until connected to a shared server.</p></div>
+    <button class="btn primary" type="button" id="openAddNeedy">＋ Add Needy Person</button>
+  </div>
+  <div class="donationSummary">
+    <div><span>People marked Donated</span><strong id="needyDonatedCount">0</strong></div>
+    <div><span>Total amount given</span><strong id="needyDonatedTotal">₹0</strong></div>
+  </div>
+  <div class="galleryToolbar">
+    <div class="galleryFilters" id="needyFilters">
+      <button class="filter active" data-filter="all">All</button><button class="filter" data-filter="Needs Help">Needs Help</button><button class="filter" data-filter="Donated">Donated</button>
+    </div>
+    <label class="gallerySearch">Search people <input id="needySearch" type="search" placeholder="Name, location or category"></label>
+  </div>
+  <div class="donationsList needyRows" id="needyGrid"></div>
+  <div class="galleryEmpty hidden" id="needyEmpty"><div>🤝</div><h3>No one listed yet</h3><p>Add the first person KTR is supporting to start this list.</p><button class="btn secondary" type="button" id="emptyAddNeedy">Add a person</button></div>
+</div>
+</section>
+<div class="modal hidden" id="needyModal" role="dialog" aria-modal="true" aria-labelledby="needyModalTitle">
+  <div class="modalBackdrop" data-close-modal></div><div class="modalCard">
+    <button class="modalClose" type="button" data-close-modal aria-label="Close">×</button>
+    <span class="eyebrow">NEEDY PEOPLE LIST</span><h3 id="needyModalTitle">Add a needy person</h3>
+    <p class="modalHint">For privacy, publish only photos and details that the person (or their guardian) has agreed to share.</p>
+    <form id="needyForm">
+      <label>Photo*<input id="needyPhoto" type="file" accept="image/*" required></label>
+      <div class="grid2"><label>Full name*<input id="needyName" required placeholder="e.g. Lakshmi Devi"></label><label>Category*<select id="needyCategory" required><option>Education</option><option>Healthcare</option><option>Community Welfare</option><option>Emergency Support</option></select></label>
+      <label>Location<input id="needyLocation" placeholder="City / village"></label><label>Status*<select id="needyStatus" required><option value="Needs Help">Needs Help</option></select></label>
+      <label class="span2">Amount received (₹)<span class="optional"> (fill in once marked Donated)</span><input id="needyAmount" type="number" min="0" step="1" placeholder="e.g. 5000"></label></div>
+      <label class="span2">Their story<textarea id="needyStory" rows="3" placeholder="Briefly describe their situation and what support is needed."></textarea></label>
+      <label class="check"><input type="checkbox" id="needyConsent" required><span>I confirm this person (or their guardian) has agreed to have their name, photo and story published on the KTR website.</span></label>
+      <div class="actions"><button type="button" class="btn secondary" data-close-modal>Cancel</button><button class="btn primary" type="submit">Add to List</button></div>
+    </form>
+  </div>
+</div>
 <section class="section gallerySection" id="gallery">
 <div class="wrap">
   <div class="galleryHead">
@@ -107,7 +143,7 @@
 <div class="wrap">
   <div class="galleryHead">
     <div><span class="eyebrow">TRANSPARENCY</span><h2>Donations received</h2><p>A public record of contributions to KTR. Add a record using the button below — figures shown are demo placeholders until real donation data is entered.</p></div>
-    <button class="btn primary" type="button" id="openAddDonation">＋ Add Donation Record</button>
+    <!--<button class="btn primary" type="button" id="openAddDonation">＋ Add Donation Record</button> -->
   </div>
   <div class="donationSummary">
     <div><span>Total donations logged</span><strong id="donationCount">0</strong></div>
@@ -134,6 +170,6 @@
 <section class="about" id="about"><div class="wrap aboutGrid"><div><span class="eyebrow">ABOUT KTR</span><h2>Compassion with accountability.</h2></div><div><p>KTR Charitable Trust is being presented here as a community-focused charitable organisation. Replace this copy with KTR's verified mission, registration information, trustees, annual reports and programme details before publication.</p><a href="#contact" class="textlink">Talk to the trust →</a></div></div></section>
 <section class="contact section" id="contact"><div class="wrap contactBox"><div><span class="eyebrow">GET IN TOUCH</span><h2>Have a question about donating?</h2><p>We can add WhatsApp, phone, email, donor support and receipt assistance here.</p></div><div class="contactDetails"><span>📞 +91-9492867926</span><span>✉ info@ktrcharitabletrust.org</span><a href="#donate" class="btn primary">Donate Now</a></div></div></section>
 </main>
-<footer><div class="wrap footerGrid"><div><img src="logo.png" alt="KTR Charitable Trust"><p>Serving communities with compassion, dignity and purpose.</p></div><div><h4>Quick links</h4><a href="#about">About</a><a href="#causes">Causes</a><a href="#impact">Impact</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#donate">Donate</a></div><div><h4>Donation support</h4><p>Tax receipts, bank transfers, international donations and payment support can be added once KTR's verified details are supplied.</p></div></div><div class="wrap copyright">© 2026 KTR Charitable Trust. All rights reserved.</div></footer>
+<footer><div class="wrap footerGrid"><div><img src="logo.png" alt="KTR Charitable Trust"><p>Serving communities with compassion, dignity and purpose.</p></div><div><h4>Quick links</h4><a href="#about">About</a><a href="#causes">Causes</a><a href="#needylist">Needy People</a><a href="#impact">Impact</a><a href="#leadership">Leadership</a><a href="#donationslist">Donations List</a><a href="#donate">Donate</a></div><div><h4>Donation support</h4><p>Tax receipts, bank transfers, international donations and payment support can be added once KTR's verified details are supplied.</p></div></div><div class="wrap copyright">© 2026 KTR Charitable Trust. All rights reserved.</div></footer>
 <script src="script.js"></script>
 </body></html>
