@@ -44,6 +44,7 @@ const defaultGallery = [
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2022',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/7_all_15082022.jpeg',sample:true},
   
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2011',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/0_15082011.jpeg',sample:true},
+  {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2011',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/1_15082011.jpeg',sample:true},
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2011',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/2_15082011.jpeg',sample:true},
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2011',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/3_15082011.jpeg',sample:true},
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2011',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/4_15082011.jpeg',sample:true},
@@ -188,3 +189,72 @@ donationsListEl.addEventListener('click',e=>{
   localStorage.setItem('ktrDonations',JSON.stringify(donationItems)); renderDonations();
 });
 renderDonations();
+
+// KTR Needy People List: local browser list of people the trust supports, filterable by status (All / Needs Help / Donated).
+const defaultNeedy = [
+  {id:'needy-sample-1',name:'Sample: Add a real name',category:'Education',location:'Sample village',status:'Needs Help',story:'Replace this sample with a real person KTR is supporting — their name, photo and story.',photo:'',amount:0,sample:true},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'10 year Boy(Cancer patient) for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'DhilliRao  for Medical support - 2026',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Deepu Hyderabad for Medical support - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 2nd year - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2025',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2024',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Panda Ravi  for Medical support - 2023',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'Chokkara Bharathi  for Medical support - 2024',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Bhagavan Sri Satya Baba for Anndanam - 2021',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'K Gopal for Covid time support - 2020',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
+  {id:'needy-sample-3',name:'Maddu Danalaxmi Daughter  for Medical support - 2019',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true}
+];
+const needyModal=document.getElementById('needyModal');
+const needyGrid=document.getElementById('needyGrid'), needyEmpty=document.getElementById('needyEmpty'), needyFilters=document.getElementById('needyFilters'), needySearch=document.getElementById('needySearch');
+let needyItems=[], needyActiveFilter='all';
+try{ needyItems=JSON.parse(localStorage.getItem('ktrNeedyPeople')||'[]'); }catch(e){ needyItems=[]; }
+if(!needyItems.length) needyItems=defaultNeedy;
+
+function renderNeedyList(){
+  const donatedOnly=needyItems.filter(p=>p.status==='Donated');
+  document.getElementById('needyDonatedCount').textContent=donatedOnly.length;
+  document.getElementById('needyDonatedTotal').textContent='₹'+donatedOnly.reduce((sum,p)=>sum+Number(p.amount||0),0).toLocaleString('en-IN');
+
+  const term=(needySearch?.value||'').trim().toLowerCase();
+  const filtered=needyItems.filter(p=>{
+    const matchesStatus=needyActiveFilter==='all'||p.status===needyActiveFilter;
+    const matchesTerm=!term||[p.name,p.location,p.category].some(v=>(v||'').toLowerCase().includes(term));
+    return matchesStatus&&matchesTerm;
+  });
+  needyGrid.innerHTML='';
+  needyEmpty.classList.toggle('hidden',filtered.length>0);
+  filtered.forEach(p=>{
+    const row=document.createElement('div'); row.className='donationRow'+(p.sample?' sample':'');
+    const statusClass=p.status==='Donated'?'donated':'needs';
+    const metaBits=[p.location||'Location not on record',p.story||''].filter(Boolean);
+    const amountText=(p.status==='Donated'&&Number(p.amount||0)>0)?'₹'+Number(p.amount).toLocaleString('en-IN'):'';
+    row.innerHTML=`<div class="donorInitial">${p.photo?`<img src="${p.photo}" alt="${escapeHtml(p.name)}">`:initials(p.name)}</div><div><div class="donorName">${escapeHtml(p.name)}</div><div class="donationMeta">${escapeHtml(metaBits.join(' · '))}</div></div><span class="donationCauseTag">${escapeHtml(p.category)}</span><span class="needyStatusTag ${statusClass}">${escapeHtml(p.status)}</span><span class="donationAmount">${amountText}</span>${p.sample?'':`<button class="donationDelete" data-delete-needy="${p.id}">Remove</button>`}`;
+    needyGrid.appendChild(row);
+  });
+}
+needyFilters?.addEventListener('click',e=>{
+  const btn=e.target.closest('.filter'); if(!btn)return;
+  needyFilters.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); needyActiveFilter=btn.dataset.filter; renderNeedyList();
+});
+needySearch?.addEventListener('input',renderNeedyList);
+document.getElementById('openAddNeedy')?.addEventListener('click',()=>openModal(needyModal));
+document.getElementById('emptyAddNeedy')?.addEventListener('click',()=>openModal(needyModal));
+document.getElementById('needyForm')?.addEventListener('submit',e=>{
+  e.preventDefault(); const file=document.getElementById('needyPhoto').files[0]; if(!file)return;
+  const reader=new FileReader(); reader.onload=()=>{
+    const item={id:'needy-'+Date.now(),name:document.getElementById('needyName').value.trim(),category:document.getElementById('needyCategory').value,location:document.getElementById('needyLocation').value.trim(),status:document.getElementById('needyStatus').value,story:document.getElementById('needyStory').value.trim(),amount:Number(document.getElementById('needyAmount').value||0),photo:reader.result,sample:false};
+    needyItems.push(item);
+    try{ localStorage.setItem('ktrNeedyPeople',JSON.stringify(needyItems)); }catch(err){ alert('The image is too large for this browser demo. Please use a smaller photo.'); return; }
+    e.target.reset(); closeModal(needyModal); renderNeedyList(); document.getElementById('needylist').scrollIntoView({behavior:'smooth'});
+  }; reader.readAsDataURL(file);
+});
+needyGrid.addEventListener('click',e=>{
+  const del=e.target.closest('[data-delete-needy]'); if(!del)return;
+  needyItems=needyItems.filter(x=>x.id!==del.dataset.deleteNeedy);
+  localStorage.setItem('ktrNeedyPeople',JSON.stringify(needyItems)); renderNeedyList();
+});
+renderNeedyList();
