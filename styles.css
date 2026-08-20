@@ -8,3 +8,18 @@
 @media(max-width:600px){.trusteeGrid{grid-template-columns:1fr}}
 .needySection{background:#f6f7f3}.needyRows .donationRow{grid-template-columns:auto 1fr auto auto auto auto}.needyRows .donorInitial{overflow:hidden}.needyRows .donorInitial img{width:100%;height:100%;object-fit:cover;border-radius:50%}.needyStatusTag{border-radius:999px;padding:6px 10px;font-size:10.5px;font-weight:800;white-space:nowrap}.needyStatusTag.needs{background:#fef4e8;color:var(--orange)}.needyStatusTag.donated{background:#eef6f0;color:var(--green2)}.needyRows .sample .donorName:after{content:' (sample)';color:var(--muted);font-weight:600;font-size:11px}
 @media(max-width:900px){.needyRows .donationRow{grid-template-columns:auto 1fr;grid-template-areas:'avatar name' 'avatar cause' 'avatar amount';row-gap:6px}}
+
+
+/* Chiranjeevi inspiration section */
+.inspirationSection{background:#fffdf8;position:relative;overflow:hidden}
+.inspirationGrid{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:65px;align-items:center}
+.inspirationPhotoCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:14px;box-shadow:0 18px 45px rgba(24,50,36,.10);max-width:420px}
+.inspirationPhotos{display:grid;grid-template-columns:1fr;gap:12px}.inspirationPhotos figure{margin:0;background:#f7f8f5;border-radius:17px;overflow:hidden;border:1px solid #edf0eb}.inspirationPhotos img{display:block;width:100%;height:220px;object-fit:cover;object-position:center;background:#eef2ee}.inspirationPhotos figcaption{padding:9px 10px 11px;font-size:11px;line-height:1.35;color:#59645d;font-weight:700}
+.photoCredit{font-size:9px;color:var(--muted);padding:10px 4px 2px;line-height:1.4}
+.inspirationCopy h2{max-width:760px;margin-bottom:18px}
+.inspirationCopy .lead{font-size:19px;line-height:1.65;color:#445148;font-weight:600}
+.inspirationCopy p{font-size:15px;line-height:1.8;color:#59645d;max-width:800px}
+.inspirationCopy blockquote{margin:25px 0;padding:20px 24px;border-left:4px solid var(--orange);background:#f8f2e8;border-radius:0 14px 14px 0;color:var(--green2);font-size:18px;font-weight:800;line-height:1.6}
+.inspirationClosing{padding-top:4px}
+@media(max-width:900px){.inspirationGrid{grid-template-columns:1fr;gap:35px}.inspirationPhotoCard{max-width:520px;margin:0 auto}.inspirationPhotos img{height:250px}}
+@media(max-width:600px){.inspirationPhotos img{height:205px}.inspirationCopy .lead{font-size:17px}}
