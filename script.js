@@ -204,9 +204,10 @@ const defaultNeedy = [
   {id:'needy-sample-3',name:'Education support for the Intermediate 1st year - 2024',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
   {id:'needy-sample-3',name:'Panda Ravi  for Medical support - 2023',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'Chokkara Bharathi  for Medical support - 2024',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
-  {id:'needy-sample-3',name:'Bhagavan Sri Satya Baba for Anndanam - 2021',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
+  {id:'needy-sample-3',name:'Shishu Mangal Orphanage - 2022',category:'Community Welfare',location:'Nallagandla, Hyderabad',status:'Donated',story:'To Shishu Mangal Orphanage Donated Amount.',photo:'',amount:2000,sample:true},
+  {id:'needy-sample-3',name:'Bhagavan Sri Satya Baba for Annadanam - 2021',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:5000,sample:true},
   {id:'needy-sample-3',name:'K Gopal for Covid time support - 2020',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true},
-  {id:'needy-sample-3',name:'Maddu Danalaxmi Daughter  for Medical support - 2019',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true}
+  {id:'needy-sample-3',name:'Jogi Dhanalaxmi Daughter for Medical support - 2019',category:'Community Welfare',location:'Akkupalli',status:'Donated',story:'For medical support Donated Amount.',photo:'',amount:10000,sample:true}
 ];
 const needyModal=document.getElementById('needyModal');
 const needyGrid=document.getElementById('needyGrid'), needyEmpty=document.getElementById('needyEmpty'), needyFilters=document.getElementById('needyFilters'), needySearch=document.getElementById('needySearch');
