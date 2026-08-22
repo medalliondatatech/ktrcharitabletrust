@@ -62,7 +62,7 @@ const defaultGallery = [
     {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2010',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/1_15082010.jpg',sample:true},
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2010',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/2_15082010.jpg',sample:true},
   {id:'sample-2',cause:'Education',title:'Photo Gallery assistance',location:'ZPH School, Akkupalli',date:'15th-August-2010',donor:'KTR donor',support:'Educational support',caption:'KTR beneficiary photos and approved story.',image:'Gallery/3_15082010.jpg',sample:true},
-  {id:'sample-3',cause:'Community Welfare',title:'Community support',location:'Add location',date:'',donor:'KTR donor',support:'Essential supplies',caption:'Replace this sample with a real KTR beneficiary photo and approved story.',image:'logo.png',sample:true}
+  {id:'sample-3',cause:'Community Welfare',title:'Community support',location:'Add location',date:'',donor:'KTR donor',support:'Essential supplies',caption:'',image:'logo.png',sample:true}
 ];
 const galleryGrid=document.getElementById('galleryGrid'), galleryEmpty=document.getElementById('galleryEmpty'), gallerySearch=document.getElementById('gallerySearch');
 let galleryItems=[];
@@ -108,12 +108,13 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelecto
 
 // KTR Leadership: local browser list of trustees (Chairman, Vice-Chairman, Members) until a backend/CMS is connected.
 const defaultTrustees = [
-  {id:'trustee-sample-1',name:'Rambabunaidu Koda',role:'Chairman',bio:'Replace this sample with the trust\'s actual Chairman — name, photo and a short bio.',photo:'',sample:true},
-  {id:'trustee-sample-1',name:'Seetharamaraju Koda',role:'Vice-Chairman',bio:'Replace this sample with the trust\'s actual Vice-Chairman & Secretary — name, photo and a short bio.',photo:'',sample:true},
-  {id:'trustee-sample-3',name:'Vaikuntarao Patnana',role:'Advisory Member',bio:'Replace this sample with an actual trust Member — name, photo and a short bio.',photo:'',sample:true},
-  {id:'trustee-sample-3',name:'Dhillirao Koda',role:'Advisory Member',bio:'Replace this sample with an actual trust Member — name, photo and a short bio.',photo:'',sample:true},
-  {id:'trustee-sample-3',name:'Sagarnaidu Cheegati',role:'Advisory Member',bio:'Replace this sample with an actual trust Member — name, photo and a short bio.',photo:'',sample:true},
-  {id:'trustee-sample-3',name:'Prem Kumar Singupalli',role:'Advisory Member',bio:'Replace this sample with an actual trust Member — name, photo and a short bio.',photo:'',sample:true}
+  {id:'trustee-sample-1',name:'Rambabunaidu Koda',role:'Chairman',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-1',name:'Seetharamaraju Koda',role:'Vice-Chairman',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-3',name:'Vaikuntarao Patnana',role:'Advisory Member',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-3',name:'Dhillirao Koda',role:'Advisory Member',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-3',name:'Satya A',role:'Advisory Member',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-3',name:'Sagarnaidu Cheegati',role:'Advisory Member',bio:'',photo:'',sample:true},
+  {id:'trustee-sample-3',name:'Prem Kumar Singupalli',role:'Advisory Member',bio:'',photo:'',sample:true}
 ];
 const trusteeModal=document.getElementById('trusteeModal');
 const trusteeGrids={Chairman:document.getElementById('trusteeGridChairman'),'Vice-Chairman':document.getElementById('trusteeGridViceChairman'),Member:document.getElementById('trusteeGridMember')};
